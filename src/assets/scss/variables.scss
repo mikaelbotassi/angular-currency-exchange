@@ -8,3 +8,16 @@ $text-secondary: #919191;
 $text-green: #3C7649;
 $text-blue: #3684CB;
 $text-red: #DD4B4B;
+
+:root{
+    --body-bg: #{$body-bg};
+    --header-bg: #{$header-bg};
+    --card-header-bg: #{$card-header-bg};
+    --card-bg: #{$card-bg};
+    --button-bg: #{$button-bg};
+    --text-basic: #{$text-basic};
+    --text-secondary: #{$text-secondary};
+    --text-green: #{$text-green};
+    --text-blue: #{$text-blue};
+    --text-red: #{$text-red};
+}

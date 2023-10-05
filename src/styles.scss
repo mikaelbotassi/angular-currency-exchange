@@ -6,10 +6,22 @@
     box-sizing: border-box;
     margin: 0;
 }
+
+html{ height: 100% }
+
 body{
     background-color: $body-bg;
     font-family: $body-font-family;
     font-weight: 500;
+    height: 100%;
+}
+app-root{
+    height: 100%;
+    display: block;
+}
+
+main, section{
+    position: relative;
 }
 
 .text-basic{ color: $text-basic; }

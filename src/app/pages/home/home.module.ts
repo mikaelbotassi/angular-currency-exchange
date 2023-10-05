@@ -1,16 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
-import { HeaderComponent } from 'src/app/shared/components/header/header.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { RouterModule, Routes } from '@angular/router';
+import { RootHomeComponent } from './containers/root-home/root-home.component';
+import { CurrencyListComponent } from './components/currency-list/currency-list.component';
 
-
+const routes: Routes = [
+  {
+    path: '',
+    component: RootHomeComponent,
+    children: [
+      {path: '', component: CurrencyListComponent}
+    ]
+  }
+];
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    HeaderComponent
+    RootHomeComponent,
   ],
   imports: [
+    RouterModule,
+    RouterModule.forRoot(routes),
+    SharedModule,
     CommonModule
   ]
 })

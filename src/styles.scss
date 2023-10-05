@@ -1,9 +1,42 @@
 @import './assets/scss/variables.scss';
 
+
+
 *{
     box-sizing: border-box;
     margin: 0;
 }
 body{
     background-color: $body-bg;
+    font-family: $body-font-family;
+    font-weight: 500;
+}
+
+.text-basic{ color: $text-basic; }
+.text-secondary{ color: $text-secondary; }
+.text-green{ color: $text-green; }
+.text-blue{ color: $text-blue; }
+.text-red{ color: $text-red; }
+
+.fw-light{ font-weight: 200 }
+.fw-normal{ font-weight: 500 }
+.fw-semibold{ font-weight: 600 }
+.fw-bold{ font-weight: 700 }
+.fw-extrabold{ font-weight: 800 }
+
+@for $i from 1 through 5{
+
+    h#{$i}, .h#{$i}{
+        font-size: #{2.5 - ($i * 0.25)}rem;
+        line-height: 1.2;
+        font-weight: normal;
+    }
+
+    .fs-#{$i}{
+        font-size: #{2.5 - ($i * 0.25)}rem !important;
+    }
+    
+    .display-#{$i}{
+        font-size: #{5 - ($i * 0.5)}rem !important;
+    }
 }

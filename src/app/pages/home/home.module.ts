@@ -4,6 +4,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { RootHomeComponent } from './containers/root-home/root-home.component';
 import { CurrencyListComponent } from './components/currency-list/currency-list.component';
+import { CardComponent } from './components/card/card.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     RootHomeComponent,
+    CardComponent,
+    CurrencyListComponent
   ],
   imports: [
     RouterModule,

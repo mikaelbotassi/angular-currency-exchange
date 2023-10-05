@@ -1,0 +1,35 @@
+article{
+    width: 33%;
+    background-color: var(--card-bg);
+    border-radius: 1rem;
+
+    .card-header{
+        padding: 3rem;
+        text-align: center;
+        background-color: var(--card-header-bg);
+    }
+
+    .card-content{
+        padding: 5rem;
+        text-align: center;
+    }
+
+    .card-details{
+
+        display: flex;
+        
+        .card-variation{
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid var(--card-header-bg);
+        }
+        .card-updated{
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+            border: 1px solid var(--card-header-bg);
+        }
+    }
+
+}

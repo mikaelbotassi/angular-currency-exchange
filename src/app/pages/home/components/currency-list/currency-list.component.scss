@@ -8,6 +8,7 @@ main{
     justify-content: center;
 
     .container{
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -20,11 +21,27 @@ main{
 
 app-card{
     display: block;
+    width: 100%;
 }
 
 @media (min-width: 1200px) {
     main{
         padding-left: 0;
         padding-top: 0;
+
+        app-card{
+            width: 30.33% !important;
+        }
+
+    }
+}
+
+@media (min-width: 768px) {
+    main{
+
+        app-card{
+            width: 45%;
+        }
+
     }
 }

@@ -7,6 +7,11 @@ import { CurrencyListComponent } from './components/currency-list/currency-list.
 import { CardComponent } from './components/card/card.component';
 import { QuoteApiService } from './services/quote-api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ErrorMessageComponent } from './components/card/error-message/error-message.component';
+import { CardContentComponent } from './components/card/card-content/card-content.component';
+import { DolarCanadenseComponent } from './features/dolar-canadense/dolar-canadense.component';
+import { PesoArgentinoComponent } from './features/peso-argentino/peso-argentino.component';
+import { LibraEsterlinaComponent } from './features/libra-esterlina/libra-esterlina.component';
 
 const routes: Routes = [
   {
@@ -22,7 +27,12 @@ const routes: Routes = [
   declarations: [
     RootHomeComponent,
     CardComponent,
-    CurrencyListComponent
+    CurrencyListComponent,
+    CardContentComponent,
+    ErrorMessageComponent,
+    DolarCanadenseComponent,
+    PesoArgentinoComponent,
+    LibraEsterlinaComponent
   ],
   imports: [
     RouterModule,

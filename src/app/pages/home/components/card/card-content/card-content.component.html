@@ -1,0 +1,33 @@
+
+
+<ng-container *ngIf="!isLoading; else loader">
+
+  <ng-container *ngIf="!error; else errorMessage">
+    <div class="card-content">
+      <h2 class="fw-semibold display-2" [ngClass]="textColor">{{currency}}</h2>
+    </div>
+    <div class="card-details">
+      <div class="card-variation">
+          <p class="fw-semibold text-secondary">Variação (%)</p>
+          <h5 class="fw-semibold text-basic">{{percent}}</h5>
+      </div>
+      <div class="card-updated">
+          <p class="fw-semibold text-secondary">Atualizado</p>
+          <h5 class="fw-semibold text-basic">{{created_date}}</h5>
+      </div>
+    </div>
+  </ng-container >
+
+  <ng-template #errorMessage>
+    <div class="card-content">
+      <app-error-message></app-error-message>
+    </div>
+  </ng-template>
+  
+</ng-container>
+
+<ng-template #loader>
+  <div class="card-content">
+    <app-loader></app-loader>
+  </div>
+</ng-template>

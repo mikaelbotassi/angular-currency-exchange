@@ -2,20 +2,12 @@
     <div class="card-header">
         <h3 class="fw-bold text-basic display-6" >{{getFormatedName()}}</h3>
     </div>
-    <div class="card-content" *ngIf="!isLoading">
-        <h2 class="fw-semibold display-2" [ngClass]="getTextColor()">{{getformatedValue()}}</h2>
-    </div>
-    <div class="card-content" *ngIf="isLoading">
-        <h2 class="fw-semibold display-2 text-basic">Carregando</h2>
-    </div>
-    <div class="card-details">
-        <div class="card-variation">
-            <p class="fw-semibold text-secondary">Variação (%)</p>
-            <h5 class="fw-semibold text-basic">{{getformatedPercent()}}</h5>
-        </div>
-        <div class="card-updated">
-            <p class="fw-semibold text-secondary">Atualizado</p>
-            <h5 class="fw-semibold text-basic">{{getformatedDate()}}</h5>
-        </div>
+    <div class="card-body">
+        <app-card-content
+        [textColor]="getTextColor()"
+        [currency]="getformatedValue()"
+        [percent]="getformatedPercent()"
+        [created_date]="getformatedDate()"
+        ></app-card-content>
     </div>
 </article>

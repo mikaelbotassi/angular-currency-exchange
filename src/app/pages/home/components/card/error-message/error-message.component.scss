@@ -1,0 +1,14 @@
+.error-message{ margin-bottom: 2rem; }
+button{
+    padding: 1rem 1.75rem;
+    cursor: pointer;
+    font-family: var(--body-font-family);
+    border-radius: .75rem;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    font-size: 1rem;
+    border: none;
+    overflow: hidden !important;
+    background: var(--button-bg);
+    color: var(--text-basic);
+}

@@ -10,9 +10,9 @@ export class Quote{
   private _timestamp:string;
   private _create_date:string;
 
-  constructor(){
+  constructor(name:string = ""){
       this._codein = "";
-      this._name = "";
+      this._name = name;
       this._high = "";
       this._low = "";
       this._varBid = "";

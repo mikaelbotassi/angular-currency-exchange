@@ -41,7 +41,7 @@ npm install -g @angular/cli
 
 Wait for the installation to complete. Once it's done, you can verify the installation by running:
 ```bash
-ng --version
+ng version
 ```
 
 This should display the installed Angular CLI version.

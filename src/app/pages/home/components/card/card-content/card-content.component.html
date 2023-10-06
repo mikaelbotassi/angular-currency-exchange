@@ -1,5 +1,3 @@
-
-
 <ng-container *ngIf="!isLoading; else loader">
 
   <ng-container *ngIf="!error; else errorMessage">
@@ -20,7 +18,7 @@
 
   <ng-template #errorMessage>
     <div class="card-content">
-      <app-error-message></app-error-message>
+      <app-error-message (restart)="sendReloadToParent()"></app-error-message>
     </div>
   </ng-template>
   

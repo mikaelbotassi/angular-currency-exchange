@@ -1,0 +1,12 @@
+<app-card>
+    <app-card-header>{{getFormatedName()}}</app-card-header>
+    <app-card-content
+    [textColor]="getTextColor()"
+    [currency]="getformatedValue()"
+    [percent]="getformatedPercent()"
+    [created_date]="getformatedDate()"
+    [isLoading]="isLoading"
+    [error]="error"
+    (restart)="restartRequests()"
+    ></app-card-content>
+</app-card>

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { QuoteApiService } from '../../../services/quote-api.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-error-message',
@@ -8,10 +7,12 @@ import { QuoteApiService } from '../../../services/quote-api.service';
 })
 export class ErrorMessageComponent {
 
-  constructor(private quoteApiService : QuoteApiService) { }
+  @Output() restart:EventEmitter<any> = new EventEmitter();
 
-  restartRequests():void {
-    this.quoteApiService.restartRequests();
+  constructor() { }
+
+  sendReloadToParent(){
+    this.restart.emit(true);
   }
 
 }

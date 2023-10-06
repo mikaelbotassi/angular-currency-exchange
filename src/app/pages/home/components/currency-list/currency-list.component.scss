@@ -15,13 +15,14 @@ main{
         gap: 3rem;
         padding: 0 2rem;
         flex-wrap: wrap;
+
+        > *{
+            display: block;
+            width: 100%;
+        }
+
     }
 
-}
-
-app-card{
-    display: block;
-    width: 100%;
 }
 
 @media (min-width: 1200px) {
@@ -29,7 +30,7 @@ app-card{
         padding-left: 0;
         padding-top: 0;
 
-        app-card{
+        .container > *{
             width: 30.33% !important;
         }
 
@@ -39,7 +40,7 @@ app-card{
 @media (min-width: 768px) {
     main{
 
-        app-card{
+        .container > *{
             width: 45%;
         }
 

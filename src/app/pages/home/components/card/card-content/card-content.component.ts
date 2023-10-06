@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { QuoteApiService } from '../../../services/quote-api.service';
 
 @Component({
@@ -6,29 +6,20 @@ import { QuoteApiService } from '../../../services/quote-api.service';
   templateUrl: './card-content.component.html',
   styleUrls: ['./card-content.component.scss']
 })
-export class CardContentComponent implements OnInit {
+export class CardContentComponent{
 
-  public isLoading:boolean = false;
-  public error:boolean = false;
+  @Input() isLoading:boolean = false;
+  @Input() error:boolean = false;
   @Input() textColor:string = "";
   @Input() currency:string = "";
   @Input() percent:string = "";
   @Input() created_date:string = "";
+  @Output() restart:EventEmitter<any> = new EventEmitter();
 
   constructor(private quoteApiService : QuoteApiService) { }
 
-  ngOnInit() {
-    this.quoteApiService.isLoading$.subscribe({
-      next: (isLoading) => this.isLoading = isLoading,
-      error: () => { throw new Error('Unable to check if is loading')}
-    })
-
-    this.quoteApiService.error$.subscribe({
-      next: (error) => {
-        this.error = error
-      },
-      error: () => { throw new Error('Unable to check if has error')}
-    })
+  sendReloadToParent(){
+    this.restart.emit(true);
   }
 
 }

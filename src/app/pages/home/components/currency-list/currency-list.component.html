@@ -1,7 +1,5 @@
 <main>
     <div class="container">
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
+        <app-card *ngFor="let quote of quotes" [quote]="quote"></app-card>
     </div>
 </main>

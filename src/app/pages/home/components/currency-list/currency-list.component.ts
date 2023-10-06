@@ -10,6 +10,6 @@ import { delay } from 'rxjs';
 })
 export class CurrencyListComponent {
 
-  constructor(private quoteApiService : QuoteApiService){}
+  constructor(){}
 
 }

@@ -4,6 +4,8 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { RootHomeComponent } from './root-home.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 describe('RootHomeComponent', () => {
   let component: RootHomeComponent;
@@ -11,6 +13,7 @@ describe('RootHomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [SharedModule, RouterModule],
       declarations: [ RootHomeComponent ]
     })
     .compileComponents();

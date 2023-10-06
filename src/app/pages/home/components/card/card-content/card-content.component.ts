@@ -16,7 +16,7 @@ export class CardContentComponent{
   @Input() created_date:string = "";
   @Output() restart:EventEmitter<any> = new EventEmitter();
 
-  constructor(private quoteApiService : QuoteApiService) { }
+  constructor() { }
 
   sendReloadToParent(){
     this.restart.emit(true);

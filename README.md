@@ -6,6 +6,48 @@ Based On: https://www.figma.com/file/iJJ3KTyOKrjgYmL04qF8kr/Currency-Converter?t
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
 
+## Installing Node.js
+
+Before you can run the project, you'll need to have Node.js installed on your computer. Here's how to download Node.js based on your operating system:
+
+### Windows
+
+You can download Node.js for Windows from the official website: [Node.js for Windows](https://nodejs.org/)
+
+### macOS
+
+For macOS users, Node.js can be downloaded from the official website: [Node.js for macOS](https://nodejs.org/)
+
+### Linux
+
+Linux users can typically install Node.js using their package manager. For example, on Ubuntu, you can run the following command to install Node.js:
+
+```bash
+sudo apt-get install nodejs
+```
+
+## Installing Angular CLI (Command Line Interface)
+
+
+Angular CLI is a powerful tool that simplifies various development tasks. To install Angular CLI for your project, follow these steps:
+
+Open your terminal or command prompt.
+
+Run the following command to install Angular CLI globally on your system:
+
+```bash
+npm install -g @angular/cli
+```
+
+Wait for the installation to complete. Once it's done, you can verify the installation by running:
+```bash
+ng --version
+```
+
+This should display the installed Angular CLI version.
+
+Now you're ready to use Angular CLI to simplify your development tasks, such as generating components, services, modules, and more.
+
 ## Getting Started
 
 If you want to clone and run this project locally, follow these steps:

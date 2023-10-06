@@ -10,18 +10,31 @@ import { Quote } from '../../models/Quote';
 export class CurrencyListComponent implements OnInit {
 
   public quotes:Quote[] = [];
+  public isLoading:boolean = false;
 
   constructor(private quoteApiService : QuoteApiService){}
 
   ngOnInit(): void {
-    this.getQuotes();
-  }
 
-  getQuotes(){
-    this.quoteApiService.getQuotes().subscribe({
-      next: (resp:any[]) => this.quotes = Object.values(resp),
-      error: (err:any) => { throw new Error(err) }
-    });
+    this.quoteApiService.list$.subscribe({
+      next: (quotes) => {
+        if(!quotes || quotes.length == 0){
+          this.quoteApiService.getQuotes().subscribe({
+            next: (resp) => this.quoteApiService.list = resp,
+            error: () => { throw new Error('Unable to check the most current exchange rates') }
+          })
+        } else{
+          this.quotes = Object.values(quotes)
+        }
+      },
+      error: () => { throw new Error('Unable to check the most current exchange rates') }
+    })
+
+    this.quoteApiService.isLoading$.subscribe({
+      next: (isLoading) => this.isLoading = isLoading,
+      error: () => { throw new Error('Unable to check if is loading')}
+    })
+
   }
 
 }

@@ -9,6 +9,7 @@ import { Quote } from '../../models/Quote';
 export class CardComponent {
 
   @Input() public quote:Quote = new Quote();
+  @Input() public isLoading:boolean = false;
 
   getFormatedName():string{
     return this.quote.name.split("/")[0];

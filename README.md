@@ -6,6 +6,18 @@ Based On: https://www.figma.com/file/iJJ3KTyOKrjgYmL04qF8kr/Currency-Converter?t
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
 
+## Getting Started
+
+If you want to clone and run this project locally, follow these steps:
+
+1. Clone this repository to your local machine using the `git clone` command.
+
+2. Install project dependencies with `npm install`.
+
+3. Run the project with `ng serve`.
+
+4. Open your browser and go to `http://localhost:4200/` to see the application in action.
+
 ## Project Structure
 
 The project has been organized to facilitate understanding and maintenance. The main structure is as follows:
@@ -34,18 +46,6 @@ The `components/` folder is where reusable components are stored. This promotes 
 ### Services
 
 The `services/` folder contains services for business logic. This helps maintain separation of concerns and makes the code more modular.
-
-## Getting Started
-
-If you want to clone and run this project locally, follow these steps:
-
-1. Clone this repository to your local machine using the `git clone` command.
-
-2. Install project dependencies with `npm install`.
-
-3. Run the project with `ng serve`.
-
-4. Open your browser and go to `http://localhost:4200/` to see the application in action.
 
 ## Code scaffolding
 

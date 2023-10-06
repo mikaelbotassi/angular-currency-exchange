@@ -25,4 +25,18 @@ describe('LoaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should have the first element with class loader', () => {
+    const firsElement = fixture.debugElement.query(By.css('div'));
+    expect(firsElement).toBeTruthy();
+    expect(firsElement.nativeElement.classList.contains('loader')).toBeTrue();
+  });
+  
+  it('should have the second element with class loader', () => {
+    const divElements = fixture.debugElement.queryAll(By.css('div'));
+    expect(divElements.length).toBeGreaterThanOrEqual(2);
+    const secondElement = divElements[1];
+    expect(secondElement.nativeElement.classList.contains('lds-ring')).toBeTrue();
+  });
+
 });

@@ -26,4 +26,10 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a logo component', () => {
+    const logo = fixture.debugElement.query(By.css('app-logo'));
+    expect(logo).toBeTruthy();
+  });
+
 });

@@ -1,10 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { QuoteApiService } from '../../../services/quote-api.service';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card-content',
   templateUrl: './card-content.component.html',
-  styleUrls: ['./card-content.component.scss']
+  styleUrls: ['./card-content.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardContentComponent{
 

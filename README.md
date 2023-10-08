@@ -94,6 +94,10 @@ The `components/` folder is where reusable components are stored. This promotes 
 
 The `services/` folder contains services for business logic. This helps maintain separation of concerns and makes the code more modular.
 
+## Running unit tests
+A good way to analyze what components and services should do is to check the unit tests. Use the command:
+`ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
@@ -101,10 +105,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests
 

@@ -67,5 +67,16 @@ describe('CardContentComponent', () => {
     const element = fixture.debugElement.query(By.css('app-error-message'));
     expect(element).toBeTruthy();
   });
+  
+  it('should emit restart when child restart event was triggered', () => {
+    spyOn(component.restart, 'emit');
+    component.error = true;
+    cd.detectChanges();
+
+    const element = fixture.debugElement.query(By.css('app-error-message'));
+    element.triggerEventHandler('restart', null);
+
+    expect(component.restart.emit).toHaveBeenCalledWith(true);
+  });
 
 });

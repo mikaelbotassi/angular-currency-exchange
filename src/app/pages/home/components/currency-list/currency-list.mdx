@@ -1,0 +1,53 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as CurrencyListStory from './currency-list.stories.ts'
+
+<Meta of={CurrencyListStory} />
+
+# Header Component
+
+The `Header` component is used to display a fixed header at the top of your application, typically containing a logo.
+
+## Usage
+
+`<header><app-logo></app-logo></header>`
+
+## Styles
+
+The `Header` component comes with the following styles:
+
+```
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  background-color: var(--header-bg);
+}
+```
+
+## Props
+
+The `Header` component does not accept any input properties (props).
+
+## Example
+
+Here's an example of how to use the `Header` component in your Angular application:
+
+```html
+<app-header></app-header>
+```
+
+## Notes
+
+- The `Header` component is typically used as a common header across different pages or views in your application.
+- You can customize the background color by changing the `--header-bg` CSS variable.
+
+For more details, refer to the component's source code and styles.
+
+You can use this Markdown documentation as a starting point and customize it further based on your specific requirements or add more details as needed.
+
+<Canvas of={CurrencyListStory.Default} />

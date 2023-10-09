@@ -1,0 +1,68 @@
+import { Canvas, Meta } from '@storybook/addon-docs';
+
+<Meta title="pages/home/models/QuoteModel" />
+
+# Quote Model Documentation
+___
+
+The `Quote` model represents exchange rate data for a specific currency. It provides various properties to access information about the currency's exchange rate.
+
+## Properties
+
+The `Quote` model has the following properties:
+
+1. `codein` (string): The code of the currency.
+
+2. `name` (string): The name of the currency.
+
+3. `high` (string): The highest exchange rate value.
+
+4. `low` (string): The lowest exchange rate value.
+
+5. `varBid` (string): The variation bid.
+
+6. `pctChange` (string): The percentage change.
+
+7. `bid` (string): The bid value.
+
+8. `ask` (string): The ask value.
+
+9. `timestamp` (string): The timestamp of the exchange rate data.
+
+10. `create_date` (string): The creation date of the exchange rate data.
+
+## Constructor
+
+The `Quote` constructor allows you to create a new instance of the `Quote` model. You can provide the currency name as an optional parameter.
+
+```
+constructor(name: string = "") {
+  // Initialize properties
+  this._codein = "";
+  this._name = name;
+  this._high = "";
+  this._low = "";
+  this._varBid = "";
+  this._pctChange = "";
+  this._bid = "";
+  this._ask = "";
+  this._timestamp = "";
+  this._create_date = "";
+}
+```
+
+## Getters and Setters
+
+The `Quote` model includes getters and setters for each property, allowing you to get and set their values.
+
+- Example of using getters and setters:
+
+  ```
+  const currency = new Quote("USD");
+  currency.codein = "USD";
+  const code = currency.codein; // Returns "USD"
+  ```
+
+---
+
+You can use this template as a starting point for your `Quote` model's documentation. Be sure to provide additional details and examples specific to your use case as needed.

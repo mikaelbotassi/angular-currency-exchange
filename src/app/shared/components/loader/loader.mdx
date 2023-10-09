@@ -1,0 +1,16 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as LoaderStories from './loader.stories'
+
+<Meta of={LoaderStories} />
+
+# LogoComponent
+
+The Loader component is used to display a loading animation while data is fetched or processed in the application.
+
+## Usage
+
+To use the component loader you must import the SharedModule in your component's module, or if it is a Standalone component you must import it within 'imports'.
+
+After that, you just need to choose when to render it and use it with the: `<app-loader>`
+
+<Canvas of={LoaderStories.Default} />

@@ -21,11 +21,13 @@ export class DolarCanadenseCardComponent {
           this.currencyService.isLoading = true;
           this.currencyService.getCurrency().subscribe({
             next: (resp) => {
+              console.log("🚀 ~ file: dolar-canadense-card.component.ts:24 ~ DolarCanadenseCardComponent ~ this.currencyService.getCurrency ~ resp:", resp)
               this.currencyService.currency = resp
               this.currencyService.isLoading = false;
               this.currencyService.error = false
             },
             error: () => {
+              console.log("Estive aqui")
               this.currencyService.error = true;
               this.currencyService.isLoading = false;
               this.currencyService.error = true
@@ -58,7 +60,8 @@ export class DolarCanadenseCardComponent {
   }
 
   getFormatedName():string{
-    return this.currency.name.split("/")[0];
+    if(this.currency.name) return this.currency.name.split("/")[0];
+    return "";
   }
 
   getformatedValue():string{
@@ -69,7 +72,8 @@ export class DolarCanadenseCardComponent {
   }
   
   getformatedPercent():string{
-    return this.currency.pctChange.replace(".", ",");
+    if(this.currency.pctChange) return this.currency.pctChange.replace(".", ",");
+    return "";
   }
   
   getformatedDate():string{

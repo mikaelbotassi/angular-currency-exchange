@@ -1,0 +1,87 @@
+import { Canvas, Meta } from '@storybook/addon-docs';
+
+<Meta title="pages/home/services/QuoteApiService" />
+
+# QuoteApiService Documentation
+___
+
+The `QuoteApiService` is a service that allows you to fetch currency exchange rate data from an external API. This service provides a method for retrieving currency quotes.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Methods](#methods)
+- [Example](#example)
+
+I apologize for the incorrect information in the installation section. If the `QuoteApiService` is within the `home` module as a provider, you should import that module, not the `HttpClientModule`. Here is the corrected installation section:
+
+## Installation
+
+To use the `QuoteApiService` in your Angular application, follow these steps:
+
+1. Make sure you import the `HomeModule` (or the module where the service is provided) in your root module (`AppModule` or another relevant module) as follows:
+
+```
+import { HomeModule } from './path-to-home-module';
+
+@NgModule({
+  imports: [HomeModule],
+  // ...
+})
+export class AppModule { }
+```
+
+2. Inject the `QuoteApiService` into your component or service where you want to use it:
+
+```
+import { QuoteApiService } from './path-to-quote-api-service';
+
+constructor(private quoteApiService: QuoteApiService) { }
+```
+
+The rest of the documentation remains the same. Be sure to replace `'path-to-home-module'` and `'path-to-quote-api-service'` with the actual paths to the `HomeModule` and the service in your application.
+
+## Usage
+
+### Methods
+
+#### `getQuotes(cod: string): Observable<Quote[]>`
+
+This method sends an HTTP GET request to retrieve currency exchange rate data for a given currency code.
+
+- `cod` (string): The currency code for which you want to fetch exchange rate data.
+
+Returns an Observable that emits an array of `Quote` objects.
+
+### Example
+
+Here's an example of how to use the `QuoteApiService` to fetch currency exchange rate data:
+
+```
+import { Component, OnInit } from '@angular/core';
+import { QuoteApiService } from './path-to-quote-api-service';
+import { Quote } from './models/Quote';
+
+@Component({
+  selector: 'app-currency',
+  templateUrl: './currency.component.html',
+  styleUrls: ['./currency.component.css']
+})
+export class CurrencyComponent implements OnInit {
+  quotes: Quote[] = [];
+
+  constructor(private quoteApiService: QuoteApiService) { }
+
+  ngOnInit(): void {
+    // Fetch exchange rate data for the Argentine Peso (ARS)
+    this.quoteApiService.getQuotes('ARS').subscribe((data: Quote[]) => {
+      this.quotes = data;
+    });
+  }
+}
+```
+
+In this example, we import the `QuoteApiService`, inject it into our component, and use the `getQuotes` method to fetch exchange rate data for the Argentine Peso (ARS).
+
+That's it! You can now use the `QuoteApiService` in your Angular application to retrieve currency exchange rate data from the API.

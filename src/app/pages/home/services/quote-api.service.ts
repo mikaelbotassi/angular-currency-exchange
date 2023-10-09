@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, delay, interval, switchMap, timer } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Quote } from '../models/Quote';
 
 @Injectable({

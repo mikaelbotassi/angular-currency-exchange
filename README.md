@@ -67,12 +67,11 @@ If you want to clone and run this project locally, follow these steps:
 
 Claro, aqui está um exemplo de uma seção em inglês que você pode adicionar ao README do seu projeto Angular no GitHub para explicar o uso do Storybook e como executá-lo com o comando `ng run`:
 
-```markdown
-## Storybook for Angular
+## Documentation using Storybook with Angular
 
 This project uses [Storybook](https://storybook.js.org/) to provide a development environment for visualizing our angular components and services. Storybook allows you to build, test, and document your UI components separately from your application, making it easier to iterate on and share UI elements.
 
-### Using Storybook
+### Running Storybook
 
 To get started with Storybook for this project, follow these steps:
 
@@ -89,9 +88,6 @@ To get started with Storybook for this project, follow these steps:
 >
 > For more information on how to write stories and configure Storybook, refer to the [Storybook documentation](https://storybook.js.org/docs/angular/get-started/introduction).
 >
-
-Happy component development!
-```
 
 ## Project Structure
 

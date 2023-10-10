@@ -1,0 +1,56 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as CardHeaderStory from './card-header.stories.ts'
+
+<Meta of={CardHeaderStory} />
+
+## Card Header Component
+
+The `CardHeaderComponent` is used to display a header in a card with a customizable title.
+
+### Usage
+
+```
+<app-card-header>
+  Header Title
+</app-card-header>
+```
+
+### Properties
+
+No properties are required for this component. The header title is provided as content within the `<app-card-header>` tags.
+
+### Custom Styles
+
+The component uses custom CSS styles to style the card header. You can customize these styles as needed in your application.
+
+#### SCSS
+
+```
+.card-header {
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--card-header-bg);
+}
+```
+
+### Change Detection Strategy
+
+This component utilizes the `ChangeDetectionStrategy.OnPush` strategy to optimize performance by ensuring changes are detected only when component inputs change.
+
+### Example
+
+```
+<app-card-header>
+  My Custom Title
+</app-card-header>
+```
+
+In this example, a card header will be displayed with the title "My Custom Title."
+
+### Notes
+
+Be sure to provide content within the `<app-card-header>` tags to set the card header title. You can also customize the card header styles according to your application's needs.
+
+This component is intended to be used as part of a larger card and can be embedded within other card components to create a customized look.
+
+<Canvas of={CardHeaderStory.Default} />

@@ -6,7 +6,9 @@ import { importProvidersFrom } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 setCompodocJson(docJson);
 
-initialize();
+initialize({
+  onUnhandledRequest: 'bypass'
+})
 
 const decorators = [
   applicationConfig({

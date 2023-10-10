@@ -1,0 +1,69 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as ErrorMessageStory from './error-message.stories.ts'
+
+<Meta of={ErrorMessageStory} />
+
+## Error Message Component
+
+The `ErrorMessageComponent` is used to display an error message along with a reload button for refreshing the content or handling errors.
+
+### Usage
+
+```
+<app-error-message (restart)="sendReloadToParent()"></app-error-message>
+```
+
+### Properties
+
+- `restart` (Output): An EventEmitter that emits a value when the reload button is clicked.
+
+### Custom Styles
+
+The component uses custom SCSS styles to style the error message and the reload button. You can customize these styles as needed in your application.
+
+#### SCSS
+
+```
+.error-message {
+  margin-bottom: 2rem;
+}
+
+button {
+  padding: 1rem 1.75rem;
+  cursor: pointer;
+  font-family: var(--body-font-family);
+  border-radius: 0.75rem;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  font-size: 1rem;
+  border: none;
+  overflow: hidden !important;
+  background: var(--button-bg);
+  color: var(--text-basic);
+}
+```
+
+### Change Detection Strategy
+
+This component utilizes the `ChangeDetectionStrategy.OnPush` strategy to optimize performance by ensuring changes are detected only when component inputs change.
+
+### Example
+
+```
+<app-error-message (restart)="sendReloadToParent()"></app-error-message>
+```
+
+In this example, an error message is displayed, and when the "RELOAD" button is clicked, the `sendReloadToParent` method is called.
+
+### Notes
+
+- Be sure to provide content within the `<app-error-message>` tags to set the error message text.
+- When the "RELOAD" button is clicked, it emits an event through the `restart` output, allowing you to handle the reload action in your parent component.
+
+This component is designed to help you handle and display error messages and provides an option to trigger a reload action when necessary.
+
+For more information on styling and usage customization, refer to your application's style and usage documentation.
+
+This concludes the documentation for the `ErrorMessageComponent`. Ensure you integrate it correctly into your application and customize it as needed.
+
+<Canvas of={ErrorMessageStory.Default} />

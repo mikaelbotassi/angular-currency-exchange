@@ -1752,7 +1752,7 @@
         },
         {
             "name": "DolarCanadenseCardComponent",
-            "id": "component-DolarCanadenseCardComponent-52e9e09ba9af35c8242a24269250689547955fc4b5f41834d7ab08a54a6ac4f8b0b25b93f53b6475629c2c06ed766ee4052476240ae08d8440c03e3ea0d47a0b",
+            "id": "component-DolarCanadenseCardComponent-a2816c593e1dd3efbf3da8f0560f840641c04ca7ba956af174bbf69d1a6b744235c2bd9ac726ba0a923045c17109dc401836853281c3fba71fedc04252fc8546",
             "file": "src/app/pages/home/features/dolar-canadense/components/dolar-canadense-card/dolar-canadense-card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1819,7 +1819,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 75,
+                    "line": 79,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1829,7 +1829,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 60,
+                    "line": 62,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1839,7 +1839,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 71,
+                    "line": 74,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1849,7 +1849,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 64,
+                    "line": 67,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1859,7 +1859,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 79,
+                    "line": 83,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1879,7 +1879,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 56,
+                    "line": 58,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1893,7 +1893,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { Quote } from 'src/app/pages/home/models/Quote';\nimport { DolarCanadenseService } from '../../services/dolar-canadense.service';\n\n@Component({\n  selector: 'app-dolar-canadense-card',\n  templateUrl: './dolar-canadense-card.component.html',\n  styleUrls: ['./dolar-canadense-card.component.scss']\n})\nexport class DolarCanadenseCardComponent {\n  public isLoading:boolean = false;\n  public error:boolean = false;\n  public currency:Quote = new Quote(\"Dólar Canadense\");\n\n  constructor(private currencyService:DolarCanadenseService){}\n\n  ngOnInit(): void {\n    this.currencyService.currency$.subscribe({\n      next: (requestedCurrency) => {\n        if(!requestedCurrency){\n          this.currencyService.isLoading = true;\n          this.currencyService.getCurrency().subscribe({\n            next: (resp) => {\n              this.currencyService.currency = resp\n              this.currencyService.isLoading = false;\n              this.currencyService.error = false\n            },\n            error: () => {\n              this.currencyService.error = true;\n              this.currencyService.isLoading = false;\n              this.currencyService.error = true\n              throw new Error('Unable to check the most current exchange rates for the Canadian dollar')\n            }\n          })\n        } else{\n          this.currency = requestedCurrency[0]\n        }\n      },\n      error: () => { throw new Error('Unable to check the most current exchange rates for the Canadian dollar') }\n    })\n\n    this.currencyService.isLoading$.subscribe({\n      next: (isLoading) => this.isLoading = isLoading,\n      error: () => { throw new Error('Unable to check if is loading for the Canadian dollar')}\n    })\n\n    this.currencyService.error$.subscribe({\n      next: (error) => {\n        this.error = error\n      },\n      error: () => { throw new Error('Unable to check if has error for the Canadian dollar')}\n    })\n\n  }\n\n  restartRequests(){\n    this.currencyService.restartRequests();\n  }\n\n  getFormatedName():string{\n    return this.currency.name.split(\"/\")[0];\n  }\n\n  getformatedValue():string{\n    return Number(this.currency.ask).toLocaleString('pt-BR', {\n      style: 'currency',\n      currency: 'BRL'\n    });\n  }\n  \n  getformatedPercent():string{\n    return this.currency.pctChange.replace(\".\", \",\");\n  }\n  \n  getformatedDate():string{\n    return new Date(this.currency.create_date).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });\n  }\n\n  getTextColor():string{\n    const ask = Number(this.currency.ask);\n    if(ask <= 1) return 'text-red';\n    if(ask <= 5) return 'text-green';\n    return 'text-blue';\n  }\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { Quote } from 'src/app/pages/home/models/Quote';\nimport { DolarCanadenseService } from '../../services/dolar-canadense.service';\n\n@Component({\n  selector: 'app-dolar-canadense-card',\n  templateUrl: './dolar-canadense-card.component.html',\n  styleUrls: ['./dolar-canadense-card.component.scss']\n})\nexport class DolarCanadenseCardComponent {\n  public isLoading:boolean = false;\n  public error:boolean = false;\n  public currency:Quote = new Quote(\"Dólar Canadense\");\n\n  constructor(private currencyService:DolarCanadenseService){}\n\n  ngOnInit(): void {\n    this.currencyService.currency$.subscribe({\n      next: (requestedCurrency) => {\n        if(!requestedCurrency){\n          this.currencyService.isLoading = true;\n          this.currencyService.getCurrency().subscribe({\n            next: (resp) => {\n              console.log(\"🚀 ~ file: dolar-canadense-card.component.ts:24 ~ DolarCanadenseCardComponent ~ this.currencyService.getCurrency ~ resp:\", resp)\n              this.currencyService.currency = resp\n              this.currencyService.isLoading = false;\n              this.currencyService.error = false\n            },\n            error: () => {\n              console.log(\"Estive aqui\")\n              this.currencyService.error = true;\n              this.currencyService.isLoading = false;\n              this.currencyService.error = true\n              throw new Error('Unable to check the most current exchange rates for the Canadian dollar')\n            }\n          })\n        } else{\n          this.currency = requestedCurrency[0]\n        }\n      },\n      error: () => { throw new Error('Unable to check the most current exchange rates for the Canadian dollar') }\n    })\n\n    this.currencyService.isLoading$.subscribe({\n      next: (isLoading) => this.isLoading = isLoading,\n      error: () => { throw new Error('Unable to check if is loading for the Canadian dollar')}\n    })\n\n    this.currencyService.error$.subscribe({\n      next: (error) => {\n        this.error = error\n      },\n      error: () => { throw new Error('Unable to check if has error for the Canadian dollar')}\n    })\n\n  }\n\n  restartRequests(){\n    this.currencyService.restartRequests();\n  }\n\n  getFormatedName():string{\n    if(this.currency.name) return this.currency.name.split(\"/\")[0];\n    return \"\";\n  }\n\n  getformatedValue():string{\n    return Number(this.currency.ask).toLocaleString('pt-BR', {\n      style: 'currency',\n      currency: 'BRL'\n    });\n  }\n  \n  getformatedPercent():string{\n    if(this.currency.pctChange) return this.currency.pctChange.replace(\".\", \",\");\n    return \"\";\n  }\n  \n  getformatedDate():string{\n    return new Date(this.currency.create_date).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });\n  }\n\n  getTextColor():string{\n    const ask = Number(this.currency.ask);\n    if(ask <= 1) return 'text-red';\n    if(ask <= 5) return 'text-green';\n    return 'text-blue';\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3196,7 +3196,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<DolarCanadenseCardComponent>",
-                "defaultValue": "{\n  title: 'pages/home/features/dolar-canadense/components/DolarCanadenseCardComponent',\n  component: DolarCanadenseCardComponent,\n  decorators:[\n    componentWrapperDecorator((story) =>\n    `\n    <div style=\"\n    padding:3rem 0;\n    display:flex;\n    align-items:center;\n    justify-content:center\n    \">\n      <div style=\"position:relative; width:100%\">\n      ${story}\n      </div>\n    </div>\n    `\n  ),\n  moduleMetadata({\n    imports: [HttpClientModule, SharedModule],\n    declarations: [\n      CardComponent,\n      CardContentComponent,\n      CardHeaderComponent,\n    ],\n    providers: [QuoteApiService,DolarCanadenseService]\n  }),\n]\n}"
+                "defaultValue": "{\n  title: 'pages/home/features/dolar-canadense/components/DolarCanadenseCardComponent',\n  component: DolarCanadenseCardComponent,\n  args:{\n    isLoading:false,\n    currency:new Quote('Dólar Canadense')\n  },\n  decorators:[\n    componentWrapperDecorator((story) =>\n    `\n    <div style=\"\n    padding:3rem 0;\n    display:flex;\n    align-items:center;\n    justify-content:center\n    \">\n      <div style=\"position:relative; width:100%\">\n      ${story}\n      </div>\n    </div>\n    `\n  ),\n  moduleMetadata({\n    imports: [HttpClientModule, SharedModule],\n    declarations: [\n      CardComponent,\n      CardContentComponent,\n      CardHeaderComponent,\n    ],\n    providers: [QuoteApiService,DolarCanadenseService]\n  }),\n]\n}"
             },
             {
                 "name": "mockData",
@@ -3206,7 +3206,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "[]",
-                "defaultValue": "[new Quote]"
+                "defaultValue": "[new Quote(\"Dólar Canadense\")]"
             },
             {
                 "name": "preview",
@@ -3256,7 +3256,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  parameters: {\n    msw: {\n      handlers: [\n        rest.get('/user', (req, res, ctx) => {\n          return res(\n            ctx.json({\n              firstName: 'Neil',\n              lastName: 'Maverick',\n            })\n          )\n        }),\n      ]\n    },\n  },\n}"
+                "defaultValue": "{\n  parameters: {\n    msw: [\n      rest.get('https://economia.awesomeapi.com.br/CAD', (req, res, ctx) => {\n        return res(\n          ctx.json(mockData)\n        )\n      }),\n    ],\n  },\n}"
             }
         ],
         "functions": [],
@@ -3587,7 +3587,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<DolarCanadenseCardComponent>",
-                    "defaultValue": "{\n  title: 'pages/home/features/dolar-canadense/components/DolarCanadenseCardComponent',\n  component: DolarCanadenseCardComponent,\n  decorators:[\n    componentWrapperDecorator((story) =>\n    `\n    <div style=\"\n    padding:3rem 0;\n    display:flex;\n    align-items:center;\n    justify-content:center\n    \">\n      <div style=\"position:relative; width:100%\">\n      ${story}\n      </div>\n    </div>\n    `\n  ),\n  moduleMetadata({\n    imports: [HttpClientModule, SharedModule],\n    declarations: [\n      CardComponent,\n      CardContentComponent,\n      CardHeaderComponent,\n    ],\n    providers: [QuoteApiService,DolarCanadenseService]\n  }),\n]\n}"
+                    "defaultValue": "{\n  title: 'pages/home/features/dolar-canadense/components/DolarCanadenseCardComponent',\n  component: DolarCanadenseCardComponent,\n  args:{\n    isLoading:false,\n    currency:new Quote('Dólar Canadense')\n  },\n  decorators:[\n    componentWrapperDecorator((story) =>\n    `\n    <div style=\"\n    padding:3rem 0;\n    display:flex;\n    align-items:center;\n    justify-content:center\n    \">\n      <div style=\"position:relative; width:100%\">\n      ${story}\n      </div>\n    </div>\n    `\n  ),\n  moduleMetadata({\n    imports: [HttpClientModule, SharedModule],\n    declarations: [\n      CardComponent,\n      CardContentComponent,\n      CardHeaderComponent,\n    ],\n    providers: [QuoteApiService,DolarCanadenseService]\n  }),\n]\n}"
                 },
                 {
                     "name": "mockData",
@@ -3597,7 +3597,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "[]",
-                    "defaultValue": "[new Quote]"
+                    "defaultValue": "[new Quote(\"Dólar Canadense\")]"
                 },
                 {
                     "name": "Success",
@@ -3607,7 +3607,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  parameters: {\n    msw: {\n      handlers: [\n        rest.get('/user', (req, res, ctx) => {\n          return res(\n            ctx.json({\n              firstName: 'Neil',\n              lastName: 'Maverick',\n            })\n          )\n        }),\n      ]\n    },\n  },\n}"
+                    "defaultValue": "{\n  parameters: {\n    msw: [\n      rest.get('https://economia.awesomeapi.com.br/CAD', (req, res, ctx) => {\n        return res(\n          ctx.json(mockData)\n        )\n      }),\n    ],\n  },\n}"
                 }
             ]
         },

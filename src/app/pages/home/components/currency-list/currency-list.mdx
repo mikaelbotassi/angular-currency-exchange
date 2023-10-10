@@ -3,51 +3,46 @@ import * as CurrencyListStory from './currency-list.stories.ts'
 
 <Meta of={CurrencyListStory} />
 
-# Header Component
+Sure, here's the documentation for the `CurrencyListComponent`:
 
-The `Header` component is used to display a fixed header at the top of your application, typically containing a logo.
+---
+
+# CurrencyListComponent
+
+The `CurrencyListComponent` is a component responsible for displaying a list of different currency cards, including Canadian Dollar (CAD), Argentine Peso (ARS), and British Pound Sterling (GBP) exchange rate information. It serves as a container for these currency cards.
+
+## HTML Structure
+
+The HTML structure of the `CurrencyListComponent` consists of a `<main>` element containing a `<div>` with the class `container`. Inside the container, there are three child components: `<app-dolar-canadense-card>`, `<app-peso-argentino-card>`, and `<app-libra-esterlina-card>`. These child components represent individual currency cards and display exchange rate information.
+
+## CSS Styling
+
+The CSS styling for the `CurrencyListComponent` is designed to provide a responsive layout for the currency cards. Here are the key styles:
+
+- `main`: This element serves as the main container for the component. It sets padding, alignment, and responsive layout properties.
+
+- `.container`: This class styles the container inside the main element. It controls the width, alignment, gap between child components, and responsive behavior.
+
+- Media Queries: There are two media queries included to adjust the layout based on screen width (`min-width`). These media queries modify padding and child component width to ensure a visually pleasing and responsive layout on different screen sizes.
+
+## TypeScript
+
+The TypeScript file for the `CurrencyListComponent` defines the component class. It doesn't contain any specific logic apart from its constructor.
 
 ## Usage
 
-`<header><app-logo></app-logo></header>`
+To use the `CurrencyListComponent` in your Angular application, include it in your template where you want to display a list of currency cards. The component automatically displays the Canadian Dollar (CAD), Argentine Peso (ARS), and British Pound Sterling (GBP) exchange rate cards.
 
-## Styles
-
-The `Header` component comes with the following styles:
+Example usage in a template:
 
 ```
-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 0;
-  background-color: var(--header-bg);
-}
+<app-currency-list></app-currency-list>
 ```
 
-## Props
+This component simplifies the process of displaying currency exchange rate information in a structured and responsive manner.
 
-The `Header` component does not accept any input properties (props).
+---
 
-## Example
-
-Here's an example of how to use the `Header` component in your Angular application:
-
-```html
-<app-header></app-header>
-```
-
-## Notes
-
-- The `Header` component is typically used as a common header across different pages or views in your application.
-- You can customize the background color by changing the `--header-bg` CSS variable.
-
-For more details, refer to the component's source code and styles.
-
-You can use this Markdown documentation as a starting point and customize it further based on your specific requirements or add more details as needed.
+The `CurrencyListComponent` is a versatile component that you can integrate into your Angular application to showcase various currency exchange rates efficiently. It provides an organized and visually appealing display of currency cards.
 
 <Canvas of={CurrencyListStory.Default} />

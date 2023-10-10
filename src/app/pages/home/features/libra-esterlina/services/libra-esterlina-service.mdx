@@ -1,0 +1,55 @@
+import { Canvas, Meta } from '@storybook/addon-docs';
+
+<Meta title="pages/home/features/libra-esterlina/services/LibraEsterlinaService" />
+
+# LibraEsterlinaService
+
+The `LibraEsterlinaService` service is responsible for providing information about Pound Sterling (GBP) exchange rates. It interacts with the quote API service (`QuoteApiService`) to fetch the latest GBP data and provides that data to other components.
+
+## Methods
+
+### `restartRequests()`
+
+This method is used to restart the service's data requests. It refreshes GBP data and resets the loading and error states.
+
+### `getCurrency(): Observable<Quote[]>`
+
+This method fetches GBP exchange rates from the quote API and returns an `Observable` that can be subscribed to for receiving updates of exchange rates.
+
+## Observable Properties
+
+### `currency$`: Observable
+
+An observable property that provides GBP exchange rates. Components can subscribe to this property to receive updates of exchange rates.
+
+### `isLoading$`: Observable
+
+An observable property that indicates whether the service is currently loading data. Components can subscribe to this property to monitor the loading state.
+
+### `error$`: Observable
+
+An observable property that indicates whether an error occurred while loading GBP data. Components can subscribe to this property to monitor the error state.
+
+## Private Properties
+
+### `_currency`: BehaviorSubject
+
+A private BehaviorSubject that stores GBP exchange rates.
+
+### `_isLoading`: BehaviorSubject
+
+A private BehaviorSubject that stores the current loading state.
+
+### `_error`: BehaviorSubject
+
+A private BehaviorSubject that stores the current error state.
+
+## Constructor
+
+The constructor of the service is injected with `QuoteApiService`, which is used to make calls to the quote API and determine the data reload interval.
+
+Inside the constructor, the service initiates an interval that periodically checks the quote API for the latest data. The results are stored in the private properties `_currency`, `_isLoading`, and `_error`, which can be accessed through the corresponding observable properties.
+
+---
+
+This service is crucial for providing up-to-date information about Pound Sterling exchange rates in your Angular application. You can use it in components that display this information, such as a Pound Sterling data display component. Be sure to subscribe to the appropriate observable properties to monitor data updates and the loading or error state.

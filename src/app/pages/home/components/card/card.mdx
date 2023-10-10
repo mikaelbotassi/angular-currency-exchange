@@ -1,0 +1,59 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as CardStory from './card.stories.ts'
+
+<Meta of={CardStory} />
+
+## Card Component
+
+The `CardComponent` is used to create a card-like container for displaying content with a shadowed box and rounded corners.
+
+### Usage
+
+```
+<app-card>
+  <!-- Content goes here -->
+</app-card>
+```
+
+### Custom Styles
+
+The component uses custom SCSS styles to style the card container. You can customize these styles as needed in your application.
+
+#### SCSS
+
+```
+article {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+```
+
+### Change Detection Strategy
+
+This component utilizes the `ChangeDetectionStrategy.OnPush` strategy to optimize performance by ensuring changes are detected only when component inputs change.
+
+### Example
+
+```
+<app-card>
+  <h2>Title</h2>
+  <p>This is some content inside the card.</p>
+</app-card>
+```
+
+In this example, the `CardComponent` is used to create a card-like container for displaying content. You can place any content you like inside the card.
+
+### Notes
+
+- Be sure to provide content within the `<app-card>` tags to populate the card with your desired content.
+- You can customize the card's appearance by modifying the provided CSS styles or adding additional styles as needed.
+
+This component is designed to help you create visually appealing cards for displaying content within your application.
+
+For more information on styling and usage customization, refer to your application's style and usage documentation.
+
+This concludes the documentation for the `CardComponent`. Ensure you integrate it correctly into your application and customize it as needed.
+
+<Canvas of={CardStory.Default} />

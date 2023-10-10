@@ -3,7 +3,7 @@ import { ErrorMessageComponent } from './error-message.component';
 
 // More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction
 const meta: Meta<ErrorMessageComponent> = {
-  title: 'pages/home/components/card/card-header/ErrorMessageComponent',
+  title: 'pages/home/components/card/error-message/ErrorMessageComponent',
   component: ErrorMessageComponent,
   decorators:[
     componentWrapperDecorator((story) =>

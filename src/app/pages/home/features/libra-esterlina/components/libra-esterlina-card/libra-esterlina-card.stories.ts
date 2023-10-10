@@ -1,7 +1,5 @@
 import { componentWrapperDecorator, moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { rest } from 'msw';
-import { DolarCanadenseCardComponent } from 'src/app/pages/home/features/dolar-canadense/components/dolar-canadense-card/dolar-canadense-card.component';
-import { DolarCanadenseService } from '../../services/dolar-canadense.service';
 import { HttpClientModule } from '@angular/common/http';
 import { QuoteApiService } from 'src/app/pages/home/services/quote-api.service';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -10,26 +8,28 @@ import { CardContentComponent } from 'src/app/pages/home/components/card/card-co
 import { CardHeaderComponent } from 'src/app/pages/home/components/card/card-header/card-header.component';
 import { Quote } from 'src/app/pages/home/models/Quote';
 import { ErrorMessageComponent } from 'src/app/pages/home/components/card/error-message/error-message.component';
+import { LibraEsterlinaCardComponent } from './libra-esterlina-card.component';
+import { LibraEsterlinaService } from '../../services/libra-esterlina.service';
 
-const lessThanEqual1Mock = new Quote("Dólar Canadense");
+const lessThanEqual1Mock = new Quote("Libra Esterlina");
 lessThanEqual1Mock.ask = '0.5';
 lessThanEqual1Mock.pctChange = '1,5';
 lessThanEqual1Mock.create_date = '2023-10-10 00:08:45';
 
-const GreatherThan1LessThanEqual5Mock = new Quote("Dólar Canadense");
+const GreatherThan1LessThanEqual5Mock = new Quote("Libra Esterlina");
 GreatherThan1LessThanEqual5Mock.ask = '3.75';
 GreatherThan1LessThanEqual5Mock.pctChange = '1,5';
 GreatherThan1LessThanEqual5Mock.create_date = '2023-10-10 00:08:45';
 
-const GreatherThan5Mock = new Quote("Dólar Canadense");
+const GreatherThan5Mock = new Quote("Libra Esterlina");
 GreatherThan5Mock.ask = '5.75';
 GreatherThan5Mock.pctChange = '1,5';
 GreatherThan5Mock.create_date = '2023-10-10 00:08:45';
 
 // More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction
-const meta: Meta<DolarCanadenseCardComponent> = {
-  title: 'pages/home/features/dolar-canadense/components/DolarCanadenseCardComponent',
-  component: DolarCanadenseCardComponent,
+const meta: Meta<LibraEsterlinaCardComponent> = {
+  title: 'pages/home/features/libra-esterlina/components/LibraEsterlinaCardComponent',
+  component: LibraEsterlinaCardComponent,
   args:{
     isLoading: false,
     error: false,
@@ -37,7 +37,7 @@ const meta: Meta<DolarCanadenseCardComponent> = {
   render: (args) => ({
     props: args,
     template: `
-      <app-dolar-canadense-card>
+      <app-libra-esterlina-card>
         <app-card>
           <app-card-header>{{'${args.currency.name}'}}</app-card-header>
           <app-card-content
@@ -50,7 +50,7 @@ const meta: Meta<DolarCanadenseCardComponent> = {
           (restart)="${args.restartRequests}"
           ></app-card-content>
         </app-card>
-      </app-dolar-canadense-card>
+      </app-libra-esterlina-card>
    `,
   }),
   decorators:[
@@ -76,13 +76,13 @@ const meta: Meta<DolarCanadenseCardComponent> = {
       CardHeaderComponent,
       ErrorMessageComponent
     ],
-    providers: [QuoteApiService,DolarCanadenseService]
+    providers: [QuoteApiService,LibraEsterlinaService]
   }),
 ]
 };
 
 export default meta;
-type Story = StoryObj<DolarCanadenseCardComponent>;
+type Story = StoryObj<LibraEsterlinaCardComponent>;
 
 export const Loading: Story = {
   args:{
@@ -91,7 +91,7 @@ export const Loading: Story = {
   },
   parameters: {
     msw: [
-      rest.get('https://economia.awesomeapi.com.br/CAD', (req, res, ctx) => {
+      rest.get('https://economia.awesomeapi.com.br/GBP', (req, res, ctx) => {
         return res(ctx.json(lessThanEqual1Mock))
       }),
     ],
@@ -104,7 +104,7 @@ export const WithErrors: Story = {
   },
   parameters: {
     msw: [
-      rest.get('https://economia.awesomeapi.com.br/CAD', (req, res, ctx) => {
+      rest.get('https://economia.awesomeapi.com.br/GBP', (req, res, ctx) => {
         return res(ctx.status(403));
       }),
     ],
@@ -116,7 +116,7 @@ export const lessThanEqual1: Story = {
   },
   parameters: {
     msw: [
-      rest.get('https://economia.awesomeapi.com.br/CAD', (req, res, ctx) => {
+      rest.get('https://economia.awesomeapi.com.br/GBP', (req, res, ctx) => {
         return res(ctx.json(lessThanEqual1Mock))
       }),
     ],
@@ -128,7 +128,7 @@ export const GreatherThan1LessThanEqual5: Story = {
   },
   parameters: {
     msw: [
-      rest.get('https://economia.awesomeapi.com.br/CAD', (req, res, ctx) => {
+      rest.get('https://economia.awesomeapi.com.br/GBP', (req, res, ctx) => {
         return res(ctx.json(GreatherThan1LessThanEqual5Mock))
       }),
     ],
@@ -140,7 +140,7 @@ export const GreatherThan5: Story = {
   },
   parameters: {
     msw: [
-      rest.get('https://economia.awesomeapi.com.br/CAD', (req, res, ctx) => {
+      rest.get('https://economia.awesomeapi.com.br/GBP', (req, res, ctx) => {
         return res(ctx.json(GreatherThan5Mock))
       }),
     ],

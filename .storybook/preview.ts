@@ -1,6 +1,6 @@
 import { applicationConfig, type Preview } from "@storybook/angular";
 import { setCompodocJson } from "@storybook/addon-docs/angular";
-import { initialize, mswLoader } from 'msw-storybook-addon';
+import { initialize, mswLoader, mswDecorator } from 'msw-storybook-addon';
 import docJson from "../documentation.json";
 import { importProvidersFrom } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
@@ -11,6 +11,7 @@ initialize({
 })
 
 const decorators = [
+  mswDecorator,
   applicationConfig({
     providers: [importProvidersFrom(HttpClientModule)]
   })

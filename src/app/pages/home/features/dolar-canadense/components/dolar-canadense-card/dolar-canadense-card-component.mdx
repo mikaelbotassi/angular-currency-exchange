@@ -3,4 +3,45 @@ import * as DolarCanadenseCardStory from './dolar-canadense-card-component.stori
 
 <Meta of={DolarCanadenseCardStory} />
 
-<Canvas of={DolarCanadenseCardStory.Success} />
+## Dólar Canadense Card Component
+
+The `DolarCanadenseCardComponent` is used to display information about the Canadian dollar (Dólar Canadense) within a card. It provides details such as the currency value, variation percentage, and the last updated date.
+
+### Usage
+
+```
+<app-dolar-canadense-card></app-dolar-canadense-card>
+```
+
+### Component Hierarchy
+
+- `app-card`: A generic card component that encapsulates the card header and content.
+  - `app-card-header`: Displays the formatted name of the currency.
+  - `app-card-content`: Displays the currency value, variation percentage, and last updated date. Handles loading and error states.
+
+### Properties
+
+- `isLoading` (Input): A boolean flag indicating whether the content is currently loading. If `true`, a loader will be displayed.
+
+- `error` (Input): A boolean flag indicating whether an error has occurred. If `true`, an error message will be displayed.
+
+### Methods
+
+- `restartRequests()`: Allows triggering a reload action to fetch the latest currency data.
+
+### Example
+
+```
+<app-dolar-canadense-card></app-dolar-canadense-card>
+```
+
+In this example, the `DolarCanadenseCardComponent` is used to display information about the Canadian dollar (Dólar Canadense) within a card. The component handles loading states, error messages, and formatting of currency-related information.
+
+### Notes
+
+- Customize the appearance and styles of the card and its content by modifying the provided CSS styles or adding additional styles as needed.
+- The component's logic fetches currency data from the `DolarCanadenseService` and formats it for display.
+
+This component is designed to help you display information about the Canadian dollar in a visually appealing and informative way within your application.
+
+<Canvas of={DolarCanadenseCardStory.lessThanEqual1} />

@@ -1,4 +1,4 @@
-import { componentWrapperDecorator, moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
+import { componentWrapperDecorator, type Meta, type StoryObj } from '@storybook/angular';
 import { CardHeaderComponent } from './card-header.component';
 
 // More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction

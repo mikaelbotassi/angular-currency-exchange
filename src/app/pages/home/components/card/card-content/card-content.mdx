@@ -1,0 +1,105 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as CardContentStory from './card-content.stories.ts'
+
+<Meta of={CardContentStory} />
+
+Here is the documentation for your `CardContentComponent`:
+
+## Card Content Component
+
+The `CardContentComponent` is used to display the content within a card, including currency information, variation percentage, and the last updated date.
+
+### Usage
+
+```
+<app-card-content
+  [isLoading]="isLoading"
+  [error]="error"
+  [textColor]="textColor"
+  [currency]="currency"
+  [percent]="percent"
+  [created_date]="created_date"
+  (restart)="sendReloadToParent()"
+></app-card-content>
+```
+
+### Properties
+
+- `isLoading` (Input): A boolean flag indicating whether the content is currently loading. If `true`, a loader will be displayed.
+
+- `error` (Input): A boolean flag indicating whether an error has occurred. If `true`, an error message will be displayed.
+
+- `textColor` (Input): A CSS class name that determines the text color for the currency value.
+
+- `currency` (Input): The currency value to be displayed.
+
+- `percent` (Input): The variation percentage to be displayed.
+
+- `created_date` (Input): The date when the content was last updated.
+
+- `restart` (Output): An event emitter that allows triggering a reload action when an error occurs.
+
+### Custom Styles
+
+The component uses custom SCSS styles to style the content container and its details. You can customize these styles as needed in your application.
+
+#### CSS
+
+```
+.card-content {
+  padding: 3rem;
+  text-align: center;
+}
+
+.card-details {
+  display: flex;
+
+  .card-variation {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--card-header-bg);
+  }
+  .card-updated {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0.5rem;
+    border: 1px solid var(--card-header-bg);
+  }
+}
+```
+
+### Change Detection Strategy
+
+This component utilizes the `ChangeDetectionStrategy.OnPush` strategy to optimize performance by ensuring changes are detected only when component inputs change.
+
+### Example
+
+```
+<app-card-content
+  [isLoading]="false"
+  [error]="false"
+  [textColor]="'text-basic'"
+  [currency]="'100,00'"
+  [percent]="'5'"
+  [created_date]="'2023-10-10 00:08:45'"
+  (restart)="sendReloadToParent()"
+></app-card-content>
+```
+
+In this example, the `CardContentComponent` is used to display currency information, variation percentage, and the last updated date within a card. The component handles loading states and error messages gracefully.
+
+### Notes
+
+- Customize the appearance and styles of the card content and its details by modifying the provided CSS styles or adding additional styles as needed.
+- Use the `isLoading`, `error`, `currency`, `percent`, and `created_date` inputs to dynamically update the content based on your application's data.
+
+This component is designed to help you display currency-related information within your application's card-based UI.
+
+<Canvas of={CardContentStory.GreatherThan1LessThanEqual5} />

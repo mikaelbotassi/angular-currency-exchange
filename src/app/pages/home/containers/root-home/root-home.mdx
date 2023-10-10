@@ -1,0 +1,50 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as RootHomeStory from './root-home.stories.ts'
+
+<Meta of={RootHomeStory} />
+
+# RootHomeComponent
+
+The `RootHomeComponent` is a fundamental component that serves as the root container for the home-related content in your Angular application. It acts as a wrapper for various components and provides the overall structure for the home section of your application.
+
+## HTML Structure
+
+The HTML structure of the `RootHomeComponent` is simple and consists of the following elements:
+
+- `<app-header>`: This component represents the header section of your home page. It typically includes navigation links, branding, or any other header-related content.
+
+- `<router-outlet>`: This is a placeholder for dynamically loading components based on the route. The content displayed in this outlet will change depending on the route configuration, allowing you to navigate through different views within the home section of your application.
+
+## TypeScript
+
+The TypeScript file for the `RootHomeComponent` defines the component class. In this class, there are currently no specific initialization or logic-related tasks performed in the `ngOnInit` method. This component primarily serves as a structural container.
+
+## Usage
+
+To use the `RootHomeComponent` in your Angular application, you typically include it in your routing configuration to serve as the container for different views or components within the home section of your application.
+
+Example usage in a routing configuration:
+
+```typescript
+const routes: Routes = [
+  {
+    path: 'home',
+    component: RootHomeComponent,
+    children: [
+      // Define child routes for the home section here
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'profile', component: UserProfileComponent },
+      // Add more child routes as needed
+    ],
+  },
+  // Add more top-level routes if required
+];
+```
+
+By configuring routes and associating child components, the `RootHomeComponent` can effectively manage and display various parts of your application's home section.
+
+---
+
+The `RootHomeComponent` plays a crucial role in structuring the home section of your Angular application. It provides a container for header content and dynamically switches between different views based on routing, allowing you to create a cohesive and organized user experience within the home section.
+
+<Canvas of={RootHomeStory.Default} />

@@ -5,6 +5,11 @@ import { CurrencyListComponent } from './currency-list.component';
 import { DolarCanadenseService } from '../../features/dolar-canadense/services/dolar-canadense.service';
 import { LibraEsterlinaService } from '../../features/libra-esterlina/services/libra-esterlina.service';
 import { PesoArgentinoService } from '../../features/peso-argentino/services/peso-argentino.service';
+import { PesoArgentinoCardComponent } from '../../features/peso-argentino/components/peso-argentino-card/peso-argentino-card.component';
+import { CardComponent } from '../card/card.component';
+import { CardHeaderComponent } from '../card/card-header/card-header.component';
+import { CardContentComponent } from '../card/card-content/card-content.component';
+import { ErrorMessageComponent } from '../card/error-message/error-message.component';
 
 // More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction
 const meta: Meta<CurrencyListComponent> = {
@@ -29,7 +34,11 @@ const meta: Meta<CurrencyListComponent> = {
     declarations: [
       DolarCanadenseCardComponent,
       LibraEsterlinaCardComponent,
-      DolarCanadenseCardComponent,
+      PesoArgentinoCardComponent,
+      CardComponent,
+      CardHeaderComponent,
+      CardContentComponent,
+      ErrorMessageComponent
     ],
     providers:[DolarCanadenseService, LibraEsterlinaService, PesoArgentinoService]
   }),

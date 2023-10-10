@@ -65,6 +65,34 @@ If you want to clone and run this project locally, follow these steps:
 
 4. Open your browser and go to `http://localhost:4200/` to see the application in action.
 
+Claro, aqui está um exemplo de uma seção em inglês que você pode adicionar ao README do seu projeto Angular no GitHub para explicar o uso do Storybook e como executá-lo com o comando `ng run`:
+
+```markdown
+## Storybook for Angular
+
+This project uses [Storybook](https://storybook.js.org/) to provide a development environment for visualizing our angular components and services. Storybook allows you to build, test, and document your UI components separately from your application, making it easier to iterate on and share UI elements.
+
+### Using Storybook
+
+To get started with Storybook for this project, follow these steps:
+
+1. If you haven't yet installed the project's dependencies with `npm install`, you need to do so to view the documentation.
+
+2. Start Storybook by running:
+
+   ```bash
+   ng run angular-currency-exchange:storybook
+   ```
+
+3. Open your web browser and navigate to `http://localhost:6006/` to access the Storybook UI. You should see a list of your Angular components, and you can interact with them individually.
+
+>
+> For more information on how to write stories and configure Storybook, refer to the [Storybook documentation](https://storybook.js.org/docs/angular/get-started/introduction).
+>
+
+Happy component development!
+```
+
 ## Project Structure
 
 The project has been organized to facilitate understanding and maintenance. The main structure is as follows:

@@ -65,8 +65,6 @@ If you want to clone and run this project locally, follow these steps:
 
 4. Open your browser and go to `http://localhost:4200/` to see the application in action.
 
-Claro, aqui está um exemplo de uma seção em inglês que você pode adicionar ao README do seu projeto Angular no GitHub para explicar o uso do Storybook e como executá-lo com o comando `ng run`:
-
 ## Documentation using Storybook with Angular
 
 This project uses [Storybook](https://storybook.js.org/) to provide a development environment for visualizing our angular components and services. Storybook allows you to build, test, and document your UI components separately from your application, making it easier to iterate on and share UI elements.
@@ -129,10 +127,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 ## Further help
 

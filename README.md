@@ -60,7 +60,7 @@ If you want to clone and run this project locally, follow these steps:
    1. If you run `ng serve` and encounter the following error: `ng: The file 'file_path' cannot be loaded because running scripts is disabled on this system`
    2. Open a Shell as an administrator.
    3. Run the command `Get-ExecutionPolicy`; it should return `Restricted`.
-   4. Run the command `Get-ExecutionPolicy`; it should return `Restricted`.
+   4. Run the command `Set-ExecutionPolicy RemoteSigned`.
    5. Finally, run `ng serve`.
 
 4. Open your browser and go to `http://localhost:4200/` to see the application in action.
